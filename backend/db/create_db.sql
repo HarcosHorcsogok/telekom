@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS parson;
 CREATE TABLE person(
    PERSON_ID      INT      NOT NULL,
    NAME           TEXT     NOT NULL,
@@ -6,21 +7,25 @@ CREATE TABLE person(
    PHONE          CHAR(50)
 );
 
+DROP TABLE IF EXISTS skills;
 CREATE TABLE skills(
   PERSON_ID INT         NOT NULL,
   SKILL     VARCHAR(30) NOT NULL
 );
 
+DROP TABLE IF EXISTS teams;
 CREATE TABLE teams(
   TEAM_ID INT      NOT NULL,
   NAME    CHAR(50) NOT NULL
 );
 
+DROP TABLE IF EXISTS team_members;
 CREATE TABLE team_members(
   PERSON_ID INT NOT NULL,
   TEAM_ID   INT NOT NULL
 );
 
+DROP TABLE IF EXISTS technologies;
 CREATE TABLE technologies(
   TECHNOLOGY TEXT NOT NULL,
   TEAM_ID    INT  NOT NULL
