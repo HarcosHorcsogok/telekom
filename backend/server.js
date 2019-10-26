@@ -13,14 +13,13 @@ const db_connector = new db;
 // Get people with certain skills
 router.get('/skills/:skill', function(req, res, next) {
   let skill = req.params.skill;
-  db_connector.query_person_by_skill(skill, val => { console.log(val); res.send( val ) });
+  db_connector.query_person_by_skill(skill, val => { res.send( val ) });
 });
 
 // Get people in ceertain team
 router.get('/teams/:team', function(req, res, next) {
   let team = req.params.team;
-  console.log(team);
-  db_connector.query_persons_by_team(team, val => { console.log(val); res.send(val) });
+  db_connector.query_persons_by_team(team, val => { res.send(val) });
 });
 
 // Get all technologies
@@ -30,7 +29,6 @@ router.get('/technologies', function(req, res, next) {
     val.forEach(element => {
       techs.push(element.name)
     });
-    console.log(techs); 
     res.send(techs) 
   });
 });
@@ -42,7 +40,6 @@ router.get('/skills', function(req, res, next) {
     val.forEach(element => {
       skills.push(element.name)
     });
-    console.log(skills); 
     res.send(skills) 
   });
 });
@@ -55,7 +52,6 @@ router.get('/members/:team_name', function(req, res, next) {
     val.forEach(element => {
       members.push(element.name)
     });
-    console.log(members); 
     res.send(members) 
   });
 });
@@ -63,9 +59,7 @@ router.get('/members/:team_name', function(req, res, next) {
 // Get teaams with certain technologies
 router.get('/technologies/:technology', function(req, res, next) {
   const technology = req.params.technology;
-  console.log(technology);
   db_connector.query_teams_by_technology(technology, val => { 
-    console.log(val); 
     res.send(val) 
   });
 });

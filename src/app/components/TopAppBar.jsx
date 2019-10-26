@@ -68,6 +68,8 @@ const useStyles = makeStyles(theme => ({
 */
 export default function TopAppBar(props) {
   const searchCallback = props.searchCallback;
+  // const {pathname} = props.location;
+  console.log(props)
 
   // (:
   

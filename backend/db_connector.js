@@ -14,7 +14,7 @@ class db_connector{
   }
 
   query_person_by_skill(skill, cb) {
-    let sql = `SELECT 
+    let sql = `SELECT DISTINCT
       person.PERSON_ID id,
       person.NAME name,
       teams.NAME team,
@@ -32,7 +32,7 @@ class db_connector{
   }
 
   query_persons_by_team(team, cb) {
-    let sql = `SELECT 
+    let sql = `SELECT DISTINCT
       person.PERSON_ID id,
       person.NAME name,
       teams.NAME team,
@@ -49,7 +49,7 @@ class db_connector{
   }
 
   query_technologies(cb) {
-    let sql = `SELECT
+    let sql = `SELECT DISTINCT
       TECHNOLOGY name
       FROM technologies`;
     
@@ -63,7 +63,7 @@ class db_connector{
   }
 
   query_skills(cb) {
-    let sql = `SELECT
+    let sql = `SELECT DISTINCT
       SKILL name
       FROM skills`;
     
@@ -77,7 +77,7 @@ class db_connector{
   }
 
   query_members(team_name, cb) {
-    let sql = `SELECT
+    let sql = `SELECT DISTINCT
       person.NAME name
       FROM person inner join teams on person.team_id=teams.team_id WHERE LOWER( teams.NAME ) LIKE "${team_name.toLowerCase()}"`;
     
@@ -90,7 +90,7 @@ class db_connector{
     });
   }
 
-  query_teams_by_technology(technology, cb) {let sql = `SELECT 
+  query_teams_by_technology(technology, cb) {let sql = `SELECT DISTINCT
     teams.team_id id,
     teams.name name,
     teams.place place,

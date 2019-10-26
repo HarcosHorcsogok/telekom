@@ -23,7 +23,7 @@ export default function TechnolgySkillCard(props) {
 
   const descObj = props.descObj;
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} >
       <CardActionArea>
         <CardMedia
           component="img"
