@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
 
-import "./../scss/main.scss";
+import "../scss/main.scss";
 
-import User from "./components/User.jsx";
+import User from "./components/User.jsx.js";
 
 class App extends React.Component {
   render() {
