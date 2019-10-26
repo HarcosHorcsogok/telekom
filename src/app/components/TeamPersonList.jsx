@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
 import Person from "../data/Person.jsx";
-import PersonListItem from "./PersonListItem.jsx";
 import List from "@material-ui/core/List"
 
-class PersonList extends Component {
+class TeamPersonList extends Component {
   constructor(props) {
     super(props);
     if (!this.props.state) {
@@ -18,7 +17,7 @@ class PersonList extends Component {
 
     this.state.listItems = [];
     this.state.people.forEach(person => {
-      this.state.listItems.push(person.toListItem());
+      this.state.listItems.push(person.toListItemTeam());
     });
   }
 
@@ -31,4 +30,4 @@ class PersonList extends Component {
   }
 }
 
-export default PersonList;
+export default TeamPersonList;

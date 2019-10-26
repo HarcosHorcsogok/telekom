@@ -19,9 +19,10 @@ class db_connector{
       person.NAME name,
       teams.NAME team,
       person.ROLE role
-      FROM person inner join skills on person.person_id=skills.person_id inner join teams on person.team_id=teams.team_id where skill=?`;
+      FROM person inner join skills on person.person_id=skills.person_id inner join teams on person.team_id=teams.team_id 
+      where LOWER( skill ) LIKE "%${skill.toLowerCase()}%"`;
     
-    this.db.all(sql, [skill], (err, rows) => {
+    this.db.all(sql, [], (err, rows) => {
       if (err) {
         throw err;
       }
@@ -36,9 +37,9 @@ class db_connector{
       person.NAME name,
       teams.NAME team,
       person.ROLE role
-      FROM person inner join teams on person.team_id=teams.team_id where teams.name=?`;
+      FROM person inner join teams on person.team_id=teams.team_id where LOWER( teams.name ) LIKE "${team.toLowerCase()}"`;
     
-    this.db.all(sql, [team], (err, rows) => {
+    this.db.all(sql, [], (err, rows) => {
       if (err) {
         throw err;
       }
@@ -66,6 +67,36 @@ class db_connector{
       SKILL name
       FROM skills`;
     
+    this.db.all(sql, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
+  }
+
+  query_members(team_name, cb) {
+    let sql = `SELECT
+      person.NAME name
+      FROM person inner join teams on person.team_id=teams.team_id WHERE LOWER( teams.NAME ) LIKE "${team_name.toLowerCase()}"`;
+    
+    this.db.all(sql, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
+  }
+
+  query_teams_by_technology(technology, cb) {let sql = `SELECT 
+    teams.team_id id,
+    teams.name name,
+    teams.place place,
+    technologies.technology skill
+    FROM teams inner join technologies on technologies.team_id=teams.team_id where LOWER (technology ) LIKE "${technology.toLowerCase()}"`;
+
     this.db.all(sql, [], (err, rows) => {
       if (err) {
         throw err;

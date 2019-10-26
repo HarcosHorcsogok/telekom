@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-
 import "../scss/main.scss";
 import TopAppBar from "./components/TopAppBar.jsx";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -10,6 +9,7 @@ import BottomAppBar from "./components/BottomAppBar.jsx"
 import DynamicBreadcrumbs from "./components/Breadcrumbs.jsx"
 import { spacing } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
+import TechnologySkillGrid from "./components/TechnologySkillGrid.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends React.Component {
         </Box>
 
         <Route path="/(tech|)">
-          <PersonList />
+          <TechnologySkillGrid />
         </Route>
         <Route path="/teams" component={TeamList} />
         <Route path="/forum" component={PersonList} />

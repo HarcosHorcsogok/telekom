@@ -76,7 +76,12 @@ export default function TopAppBar(props) {
   //************************** */
 
   // Remove this if you know what you are doing
-  fetch("/api/skills").then(result => result.json()).then(response => console.log(response));
+  fetch("/api/skills/c++").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/teams/teamb").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/technologies").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/skills").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/members/teamc").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/technologies/cloud").then(result => result.json()).then(response => console.log(response));
 
   //************************** */
   //************************** */
@@ -93,7 +98,7 @@ export default function TopAppBar(props) {
   return (
     <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Toolbar>
                 <Typography className={classes.title} variant="h6" noWrap>
                     HOL/KI
