@@ -4,7 +4,7 @@ CREATE TABLE person(
    NAME           TEXT     NOT NULL,
    EMAIL          TEXT     NOT NULL,
    ROLE           CHAR(20) NOT NULL,
-   PHONE          CHAR(50)
+   TEAM_ID        INT      NOT NULL
 );
 
 DROP TABLE IF EXISTS skills;
@@ -17,12 +17,6 @@ DROP TABLE IF EXISTS teams;
 CREATE TABLE teams(
   TEAM_ID INT      NOT NULL,
   NAME    CHAR(50) NOT NULL
-);
-
-DROP TABLE IF EXISTS team_members;
-CREATE TABLE team_members(
-  PERSON_ID INT NOT NULL,
-  TEAM_ID   INT NOT NULL
 );
 
 DROP TABLE IF EXISTS technologies;
