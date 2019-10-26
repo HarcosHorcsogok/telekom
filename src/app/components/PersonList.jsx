@@ -9,8 +9,8 @@ class PersonList extends Component {
     super(props);
     if (!this.props.state) {
       this.state = {
-        people: [new Person(0, "Peter Szecsi", "5G IoT", ["c++"], "szepet.jpg", "https://google.com"),
-          new Person(1, "Peter Pecsi", "5G IoT", ["c++"], "szepet.jpg", "https://google.com")],
+        people: [new Person(0, "Peter Szecsi", "5G IoT", ["c++"], "https://google.com"),
+          new Person(1, "Peter Pecsi", "5G IoT", ["c++"], "https://google.com")],
       };
     } else {
       this.state = this.props.state;
