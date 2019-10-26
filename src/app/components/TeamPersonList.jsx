@@ -1,33 +1,29 @@
 import React, { Component } from "react";
-
+import { makeStyles } from '@material-ui/core/styles';
 import Person from "../data/Person.jsx";
 import List from "@material-ui/core/List"
 
-class TeamPersonList extends Component {
-  constructor(props) {
-    super(props);
-    if (!this.props.state) {
-      this.state = {
-        people: [new Person(0, "Peter Szecsi", "manager", "5G IoT"),
-          new Person(1, "Peter Pecsi", "senior developer", "5G IoT")],
-      };
-    } else {
-      this.state = this.props.state;
-    }
 
-    this.state.listItems = [];
-    this.state.people.forEach(person => {
-      this.state.listItems.push(person.toListItemTeam());
-    });
+const useStyles = makeStyles({
+  list: {
+    paddingTop: 70,
+    paddingBottom: 70
   }
+});
 
-  render() {
-    return (
-      <List key={"aaa"}>
-        {this.state.listItems}
-      </List>
-    );
-  }
+export default function TeamPersonList(props){
+  const classes = useStyles();
+  let people;
+  if(!props.people) people = [new Person(0, "Peter Szecsi", "manager", "5G IoT"), new Person(1, "Peter Pecsi", "senior developer", "5G IoT")];
+  else people = props.people;
+  let listItems = [];
+  people.forEach(person => {
+    listItems.push(person.toListItemTeam());
+  });
+
+  return(
+    <List key={"aaa"} className={classes.list}>
+      {listItems}
+    </List>
+  );
 }
-
-export default TeamPersonList;

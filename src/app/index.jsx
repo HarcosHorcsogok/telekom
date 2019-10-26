@@ -24,9 +24,9 @@ class App extends React.Component {
     return (
       <Router>
         <TopAppBar searchCallback={this.searched} />
-        <Box p={2} > 
+        {/* <Box p={2} > 
           <DynamicBreadcrumbs />
-        </Box>
+        </Box> */}
 
         <Route path="/(tech|)">
           <TechnologySkillGrid />
