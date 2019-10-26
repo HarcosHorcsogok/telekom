@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 1),
+    padding: theme.spacing(1.5, 1, 1.5, 1.5),
     width: '100%'
   }
 }));
@@ -136,15 +136,14 @@ export default function TopAppBar(props) {
                   </div>
                   <Grow in={checked}>
                       <div className={classes.search}>
-                          <InputBase
+                          <InputBase autoFocus
                               placeholder="Search…"
                               classes={{
                                   root: classes.inputRoot,
                                   input: classes.inputInput,
                               }}
                               inputProps={{ 'aria-label': 'search' }}
-                              onChange={(ev) => searchCallback(ev.target.value)}
-                          />
+                              onChange={(ev) => searchCallback(ev.target.value)} />
                       </div>
                   </Grow>
                   <div class="font-icon-wrapper" style={{marginRight: 12}} onClick={() => handleChange()}>
