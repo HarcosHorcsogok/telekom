@@ -13,7 +13,7 @@ const db_connector = new db;
 // Get people with certain skills
 router.get('/skills/:skill', function(req, res, next) {
   let skill = req.params.skill;
-  db_connector.query_person_by_skill(skill, val => { res.send( val ) });
+  db_connector.query_person_by_skill(skill, val => { console.log(val); res.send( val ) });
 });
 
 // Get people in ceertain team

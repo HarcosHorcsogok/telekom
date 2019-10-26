@@ -76,7 +76,12 @@ export default function TopAppBar(props) {
   //************************** */
 
   // Remove this if you know what you are doing
-  fetch("/api/technologies/Cloud").then(result => result.json()).then(response => console.log(response));
+  fetch("/api/skills/c++").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/teams/teamb").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/technologies").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/skills").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/members/teamc").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/technologies/cloud").then(result => result.json()).then(response => console.log(response));
 
   //************************** */
   //************************** */
