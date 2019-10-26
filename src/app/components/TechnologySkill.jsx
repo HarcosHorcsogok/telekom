@@ -1,28 +1,44 @@
-import React, { Component } from "react";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
-class TechnologySkill extends Component {
-  constructor(props) {
-    super(props);
-    if (!this.props.state) {
-      this.state = {
-        name: "Default Topic",
-        imglink: "https://cdn.freebiesupply.com/logos/thumbs/2x/kotlin-1-logo.png"
-      };
-    } else {
-      this.state = this.props.state;
-    }
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 200,
+    maxHeight: 200
   }
+});
 
-  componentWillMount() { }
+/* 
+*  Returns code for a technology/skill card.
+*  :param descObj The object that describes the technology/skill. Needs a name and an imglink field.
+*
+*  Example: <TechnolgySkillCard descObj={{name: "Kotlin", imglink: "kotlin.png"}}/>
+*/
+export default function TechnolgySkillCard(props) {
+  const classes = useStyles();
 
-  render() {
-    return (
-      <div className="topic">
-        <img src={"" + this.state.imglink} width="50px" height="50px"></img>
-        <p>{this.state.name}</p>
-      </div>
-    );
-  }
+  const descObj = props.descObj;
+  return (
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt={"" + descObj.name}
+          height="auto"
+          image={"" + descObj.imglink}
+          title={"" + descObj.name}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {descObj.name}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
 }
-
-export default TechnologySkill;
