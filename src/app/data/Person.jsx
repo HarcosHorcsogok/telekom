@@ -20,11 +20,11 @@ class Person{
     }
 
     toListItem(){
-        return <PersonListItem state={{name: this.name, team: this.team, imgUrl: "img/" + this.name.toLowerCase().replace(" ", "") + ".jpg" , chatUrl: "slack://" + this.name.toLowerCase().replace(" ", ".")}} key={this.id}/>;
+        return <PersonListItem state={{name: this.name, team: this.team, imgUrl: "/img/" + this.name.toLowerCase().replace(" ", "") + ".jpg" , chatUrl: "slack://" + this.name.toLowerCase().replace(" ", ".")}} key={this.id}/>;
     }
 
     toListItemTeam(){
-        return <PersonListItem state={{name: this.name, team: this.role, imgUrl: "img/" + this.name.toLowerCase().replace(" ", "") + ".jpg" , chatUrl: "slack://" + this.name.toLowerCase().replace(" ", ".")}} key={this.id}/>;
+        return <PersonListItem state={{name: this.name, team: this.role, imgUrl: "/img/" + this.name.toLowerCase().replace(" ", "") + ".jpg" , chatUrl: "slack://" + this.name.toLowerCase().replace(" ", ".")}} key={this.id}/>;
     }
 }
 

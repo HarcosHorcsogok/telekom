@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton'
 class PersonListItem extends Component {
   constructor(props) {
     super(props);
-    if (!this.props.state) {
+    if (!props.state) {
       this.state = {
         name: "Peter Szecsi",
         team: "5G IoT",
@@ -19,7 +19,7 @@ class PersonListItem extends Component {
         chatUrl: "www.google.com"
       };
     } else {
-      this.state = this.props.state;
+      this.state = props.state;
     }
   }
 

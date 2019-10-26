@@ -3,13 +3,11 @@ import { render } from "react-dom";
 import "../scss/main.scss";
 import TopAppBar from "./components/TopAppBar.jsx";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import PersonList from "./components/PersonList.jsx"
-import TeamList from "./components/TeamList.jsx"
 import BottomAppBar from "./components/BottomAppBar.jsx"
-import DynamicBreadcrumbs from "./components/Breadcrumbs.jsx"
-import { spacing } from '@material-ui/system';
-import Box from '@material-ui/core/Box';
 import TechnologySkillGrid from "./components/TechnologySkillGrid.jsx";
+import PersonList from "./components/PersonList.jsx";
+import TeamList from "./components/TeamList.jsx";
+import TeamPersonList from "./components/TeamPersonList.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -72,11 +70,20 @@ class App extends React.Component {
           this.searchedTechnology(term);
         }} />
 
-        <Route path="/(tech|)">
+        <Route exact path="/(tech|)">
           <TechnologySkillGrid technologies={this.state.technologies}/>
         </Route>
-        <Route path="/skills" >
+        <Route exact path="/(tech|)/:techName">
+          <TeamList />
+        </Route>
+        <Route exact path="/(tech|)/:techName/:teamName">
+          <TeamPersonList />
+        </Route>
+        <Route exact path="/skills" >
           <TechnologySkillGrid technologies={this.state.skills}/>
+        </Route>
+        <Route exact path="/skills/:skillName" >
+          <PersonList />
         </Route>
         <Route path="/forum" component={PersonList} />
 

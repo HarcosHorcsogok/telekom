@@ -1,29 +1,44 @@
-import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
 import List from "@material-ui/core/List"
 import Team from "../data/Team.jsx"
+import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles({
-  list: {
-    paddingTop: 70,
-    paddingBottom: 70
-  }
-});
-
-export default function TeamList(props)
+export default class TeamList extends React.Component
 {
-  const classes = useStyles();
-  let teams;
-  if(!props.teams) teams = [new Team(0, "5G IoT", "6C/2", [], ["IoT"]), new Team(1, "CLANG", "3D/8", [], ["C++"])];
-  else teams = props.teams;
-  let listItems = [];
-  teams.forEach(team => {
-    listItems.push(team.toListItem());
-  });
+  constructor(props) {
+    super(props);
+    this.classes = null;
+    if(!props.teams) this.state = {people: []};
+    else this.state = {people: props.teams};
+  }
 
-  return(
-    <List className={classes.list}>
-      {listItems}
-    </List>
-  );
+  componentDidMount() {
+    let path = window.location.pathname.split('/').filter(x => x);
+    fetch("/api/technologies/" + path[path.length - 1])
+      .then(result => result.json())
+      .then(response => {
+        let people = [];
+        response.forEach(p => {
+          people.push(new Team(p.id, p.name, []));
+        });
+        this.setState({people: people});
+      });
+  }
+
+  render() {
+    let listItems = [];
+    this.state.people.forEach(person => {
+      listItems.push(person.toListItem())
+    });
+
+    const style ={
+      paddingTop: 70,
+      paddingBottom: 70
+    };
+    return (
+      <List style={style}>
+        {listItems}
+      </List>
+    );
+  }
 }

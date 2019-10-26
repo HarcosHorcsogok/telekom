@@ -3,27 +3,42 @@ import { makeStyles } from '@material-ui/core/styles';
 import Person from "../data/Person.jsx";
 import List from "@material-ui/core/List"
 
-
-const useStyles = makeStyles({
-  list: {
-    paddingTop: 70,
-    paddingBottom: 70
+export default class PersonList extends React.Component
+{
+  constructor(props) {
+    super(props);
+    this.classes = null;
+    if(!props.people) this.state = {people: []};
+    else this.state = {people: props.people};
   }
-});
 
-export default function TeamPersonList(props){
-  const classes = useStyles();
-  let people;
-  if(!props.people) people = [new Person(0, "Peter Szecsi", "manager", "5G IoT"), new Person(1, "Peter Pecsi", "senior developer", "5G IoT")];
-  else people = props.people;
-  let listItems = [];
-  people.forEach(person => {
-    listItems.push(person.toListItemTeam());
-  });
+  componentDidMount() {
+    let path = window.location.pathname.split('/').filter(x => x);
+    fetch("/api/teams/" + path[path.length - 1])
+      .then(result => result.json())
+      .then(response => {
+        let people = [];
+        response.forEach(p => {
+          people.push(new Person(p.id, p.name, p.role, p.team));
+        });
+        this.setState({people: people});
+      });
+  }
 
-  return(
-    <List key={"aaa"} className={classes.list}>
-      {listItems}
-    </List>
-  );
+  render() {
+    let listItems = [];
+    this.state.people.forEach(person => {
+      listItems.push(person.toListItemTeam());
+    });
+
+    const style ={
+      paddingTop: 70,
+      paddingBottom: 70
+    };
+    return (
+      <List style={style}>
+        {listItems}
+      </List>
+    );
+  }
 }
