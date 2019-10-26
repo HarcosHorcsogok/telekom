@@ -44,7 +44,7 @@ class App extends React.Component {
       });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch("/api/technologies")
       .then(result => result.json())
       .then(allTechnologies => {
