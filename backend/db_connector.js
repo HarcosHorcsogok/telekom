@@ -14,11 +14,17 @@ class db_connector{
   }
 
   async query_person_by_skill(skill, cb) {
-    let sql = `SELECT * FROM person inner join skills on person.person_id=skills.person_id where skill="C++"`;
-    let sql_skills = `SELECT * FROM skills where skill=?`;
+    let sql = `SELECT 
+      person.PERSON_ID id,
+      person.NAME name,
+      teams.NAME team,
+      person.ROLE role       
+      FROM person inner join skills on person.person_id=skills.person_id inner join teams on person.team_id=teams.team_id where skill=?`;
+    
+      let sql_skills = `SELECT * FROM skills where skill=?`;
     let sql1 = `SELECT DISTINCT Name name FROM person where role="manager"`;
     
-    this.db.all(sql_skills, [skill], (err, rows) => {
+    this.db.all(sql, [skill], (err, rows) => {
       if (err) {
         throw err;
       }
