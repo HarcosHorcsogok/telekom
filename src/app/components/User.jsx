@@ -30,7 +30,7 @@ class User extends Component {
   render() {
     return (
       <div className="user">
-        <h1>Hello {this.state.user.name}</h1>
+        <h1>Hello {this.state.user.msg}</h1>
       </div>
     );
   }
