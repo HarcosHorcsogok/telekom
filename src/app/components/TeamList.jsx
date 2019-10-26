@@ -2,20 +2,27 @@ import React, { Component } from "react";
 
 import TeamListItem from "./TeamListItem.jsx";
 import List from "@material-ui/core/List"
+import Team from "../data/Team.jsx"
 
 class TeamList extends Component {
   constructor(props) {
     super(props);
     if (!this.props.state) {      
       this.state = {
-        listItems: 
-        [<TeamListItem state={{name: "5G IoT", place: "6C/2", url: "https://google.com"}} key={"a"}/>,
-          <TeamListItem state={{name: "5G Phone Hardware", place: "4A/5", url: "https://google.com"}} key={"b"}/>,
-          <TeamListItem state={{name: "5G Towers", place: "8F/11", url: "https://google.com"}} key={"c"}/>]
+        teams: [
+          new Team(0, "5G IoT", "6C/2", [], ["IoT"]),
+          new Team(1, "CLANG", "3D/8", [], ["C++"])
+        ],
       };
+
     } else {
       this.state = this.props.state;
     }
+
+    this.state.listItems = [];
+    this.state.teams.forEach(team => {
+      this.state.listItems.push(team.toListItem());
+    });
   }
 
   render() {
