@@ -8,9 +8,8 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 200,
-    maxHeight: 200
-  }
+
+   }
 });
 
 /* 
@@ -29,12 +28,13 @@ export default function TechnolgySkillCard(props) {
         <CardMedia
           component="img"
           alt={"" + descObj.name}
-          height="auto"
+          height="100"
+          width="100"
           image={"" + descObj.imglink}
           title={"" + descObj.name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography variant="subtitle2">
             {descObj.name}
           </Typography>
         </CardContent>

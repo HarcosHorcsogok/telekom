@@ -93,7 +93,7 @@ export default function TopAppBar(props) {
   return (
     <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Toolbar>
                 <Typography className={classes.title} variant="h6" noWrap>
                     HOL/KI

@@ -1,18 +1,20 @@
 import React from "react";
 import { render } from "react-dom";
-
+import { makeStyles } from '@material-ui/core/styles';
 import "../scss/main.scss";
 import TopAppBar from "./components/TopAppBar.jsx";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import PersonList from "./components/PersonList.jsx"
 import TeamList from "./components/TeamList.jsx"
 import BottomAppBar from "./components/BottomAppBar.jsx"
+import TechnologySkillGrid from "./components/TechnologySkillGrid.jsx";
 
 class App extends React.Component {
+
   render() {
     return (
       <Router>
-        <Route path="/(tech|)" component={PersonList} />
+        <Route path="/(tech|)" component={TechnologySkillGrid} />
         <Route path="/teams" component={TeamList} />
         <Route path="/forum" component={PersonList} />
 
@@ -22,5 +24,5 @@ class App extends React.Component {
   }
 }
 
-render(<TopAppBar />, document.getElementById("top"));
+render(<TopAppBar/>, document.getElementById("top"));
 render(<App />, document.getElementById("app"));
