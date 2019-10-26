@@ -107,7 +107,7 @@ export default function TopAppBar(props) {
                                 input: classes.inputInput,
                             }}
                             inputProps={{ 'aria-label': 'search' }}
-                            onChange={searchCallback}
+                            onChange={(ev) => searchCallback(ev.target.value)}
                         />
                     </div>
                 </Grow>
