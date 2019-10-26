@@ -71,9 +71,6 @@ class App extends React.Component {
           this.searchedSkill(term);
           this.searchedTechnology(term);
         }} />
-        <Box p={2} > 
-          <DynamicBreadcrumbs />
-        </Box>
 
         <Route path="/(tech|)">
           <TechnologySkillGrid technologies={this.state.technologies}/>
