@@ -74,6 +74,36 @@ class db_connector{
       cb(rows);
     });
   }
+
+  query_members(team_name, cb) {
+    let sql = `SELECT
+      person.NAME name
+      FROM person inner join teams on person.team_id=teams.team_id WHERE teams.NAME=?`;
+    
+    this.db.all(sql, [team_name], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
+  }
+
+  query_teams_by_technology(technology, cb) {let sql = `SELECT 
+    teams.team_id id,
+    teams.name name,
+    teams.place place,
+    technologies.technology skill
+    FROM teams inner join technologies on technologies.team_id=teams.team_id where technology=?`;
+
+    this.db.all(sql, [technology], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
+  }
 }
   
 export default db_connector;
