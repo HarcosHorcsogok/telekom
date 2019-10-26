@@ -30,18 +30,29 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    flexGrow: 999,
+    display: 'block',
+    /*[theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },*/
+  },
+  titleWithSearch: {
     flexGrow: 1,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-    },
+    }
   },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 1),
     marginLeft: 0,
-    width: '40%'
+    flexGrow: 1,
+    [theme.breakpoints.up('sm')]: {
+      flexGrow: 0,
+    }
+    //width: '40%'
   },
   searchIcon: {
     width: theme.spacing(4),
@@ -57,9 +68,9 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 1),
+    padding: theme.spacing(1.5, 1, 1.5, 1.5),
     width: '100%'
-  },
+  }
 }));
 
 /* 
@@ -112,37 +123,61 @@ export default function TopAppBar(props) {
     setChecked(prev => !prev);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-        <AppBar position="fixed">
-            <Toolbar>
-                <Typography className={classes.title} variant="h6" noWrap>
-                    HOL/KI
-                </Typography>
-                <Grow in={checked}>
-                    <div className={classes.search}>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                            onChange={(ev) => searchCallback(ev.target.value)}
-                        />
-                    </div>
-                </Grow>
-                <div class="font-icon-wrapper" onClick={() => handleChange()}>
-                    <IconButton>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                    </IconButton>
-                </div>
-            </Toolbar>
-        </AppBar>
-        </div>
-    </ThemeProvider>
-  );
+  if(checked) {
+    return (
+      <ThemeProvider theme={theme}>
+          <div className={classes.root}>
+          <AppBar position="fixed">
+              <Toolbar>
+                  <Typography className={classes.titleWithSearch} variant="h6" noWrap>
+                      HOL/KI
+                  </Typography>
+                  <div >
+                  </div>
+                  <Grow in={checked}>
+                      <div className={classes.search}>
+                          <InputBase autoFocus
+                              placeholder="Search…"
+                              classes={{
+                                  root: classes.inputRoot,
+                                  input: classes.inputInput,
+                              }}
+                              inputProps={{ 'aria-label': 'search' }}
+                              onChange={(ev) => searchCallback(ev.target.value)} />
+                      </div>
+                  </Grow>
+                  <div class="font-icon-wrapper" style={{marginRight: 12}} onClick={() => handleChange()}>
+                      <IconButton edge="end">
+                          <div className={classes.searchIcon}>
+                              <SearchIcon />
+                          </div>
+                      </IconButton>
+                  </div>
+              </Toolbar>
+          </AppBar>
+          </div>
+      </ThemeProvider>
+    );
+  } else {
+    return (
+      <ThemeProvider theme={theme}>
+          <div className={classes.root}>
+          <AppBar position="fixed">
+              <Toolbar>
+                  <Typography className={classes.title} variant="h6">
+                      HOL/KI
+                  </Typography>
+                  <div class="font-icon-wrapper" onClick={() => handleChange()}>
+                      <IconButton>
+                          <div className={classes.searchIcon}>
+                              <SearchIcon />
+                          </div>
+                      </IconButton>
+                  </div>
+              </Toolbar>
+          </AppBar>
+          </div>
+      </ThemeProvider>
+    );
+  }
 }
