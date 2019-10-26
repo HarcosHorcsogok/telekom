@@ -7,27 +7,27 @@ import Grid from "@material-ui/core/Grid"
 const useStyles = makeStyles({
   restrictor: {
     overflow: "hidden",
-    paddingTop: 80,
-    paddingBottom: 80,
-    paddingLeft: 20,
-    paddingRight: 20
+    paddingTop: 70,
+    paddingBottom: 70,
+    paddingLeft: 10,
+    paddingRight: 10
   }
 });
 
 export default function TechnologySkillGrid(props){
   const classes = useStyles();
   let skills;
-  if(!props.skills) skills = ["C++", "Rust", "C#", "Kotlin", "QT", "Cats", "Javascript", "C++", "Rust", "C#", "Kotlin", "QT", "Cats", "Javascript"];
+  if(!props.skills) skills = ["C++", "Java", "Kotlin", "AI", "Cloud", "Javascript", "Big Data", "React", "Serverless", "Machine Learning", "Hardware", "Windows", "Linux", "React", "Angular"];
   else skills = props.skills;
 
   let listItems = [];
   skills.forEach(skill => {
-    listItems.push(<Grid item xs={4}> <TechnologySkillCard descObj={{name: skill, imglink: "img/" + skill.toLowerCase().replace(" ", "_") + ".png"}} /></Grid>);
+    listItems.push(<Grid item xs={4}> <TechnologySkillCard descObj={{name: skill, imglink: "img/" + skill.toLowerCase().replace(" ", "") + ".png"}} /></Grid>);
   });
 
   return(
     <div className={classes.restrictor}>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         {listItems}
       </Grid>
     </div>

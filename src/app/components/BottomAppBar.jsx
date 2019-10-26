@@ -13,17 +13,18 @@ const useStyles = makeStyles({
     width: "100%",
     position: "fixed",
     bottom: 0,
-    left: 0
+    left: 0,
+    backgroundColor: "#E10075",
   },
+  action: {
+    color: "#ffffffd0"
+  }
 });
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#E10075',
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
+      main: '#ffffff',
     },
     secondary: {
       main: '#000000'
@@ -42,9 +43,9 @@ export default function BottomAppBar() {
   return (
     <ThemeProvider theme={theme}>
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction component={Link} to="/tech" label="Technologies" value="recents" icon={<TechIcon />} />
-        <BottomNavigationAction component={Link} to="/teams" label="Teams" value="favorites" icon={<TeamIcon />} />
-        <BottomNavigationAction component={Link} to="/forum" label="Forum" value="folder" icon={<ForumIcon />} />
+        <BottomNavigationAction component={Link} to="/tech" label="Technologies" value="recents" icon={<TechIcon />} className={classes.action} />
+        <BottomNavigationAction component={Link} to="/teams" label="Teams" value="favorites" icon={<TeamIcon />} className={classes.action}/>
+        <BottomNavigationAction component={Link} to="/forum" label="Forum" value="folder" icon={<ForumIcon />} className={classes.action}/>
       </BottomNavigation>
     </ThemeProvider>
   );
