@@ -1,7 +1,6 @@
 import express from 'express';
 import config from '../config.js';
 import db from "./db_connector.js"
-import Person from '../src/app/data/Person.jsx';
 
 // function to_person(db_row) {
 //   return new Person();
