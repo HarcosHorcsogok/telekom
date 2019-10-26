@@ -16,9 +16,7 @@ const useStyles = makeStyles({
 
 export default function TechnologySkillGrid(props){
   const classes = useStyles();
-  let skills;
-  if(!props.skills) skills = ["C++", "Rust", "C#", "Kotlin", "QT", "Cats", "Javascript", "C++", "Rust", "C#", "Kotlin", "QT", "Cats", "Javascript"];
-  else skills = props.skills;
+  let skills = props.technologies;
 
   let listItems = [];
   skills.forEach(skill => {

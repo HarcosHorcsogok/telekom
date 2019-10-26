@@ -14,24 +14,73 @@ import TechnologySkillGrid from "./components/TechnologySkillGrid.jsx";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      technologies: [],
+      skills: []
+    };
+    this.searchedTechnology = this.searchedTechnology.bind(this);
+    this.searchedSkill = this.searchedSkill.bind(this);
   }
 
-  searched(term) {
-    
+  searchedTechnology(term) {
+    fetch("/api/technologies")
+      .then(result => result.json())
+      .then(allTechnologies => {
+        const filteredTechnologies = allTechnologies.filter(t => t.toLowerCase().indexOf(term.toLowerCase()) >= 0);
+
+        this.setState({
+          technologies: filteredTechnologies
+        });
+      });
+  }
+
+  searchedSkill(term) {
+    fetch("/api/skills")
+      .then(result => result.json())
+      .then(allSkills => {
+        const filteredSkilss = allSkills.filter(t => t.toLowerCase().indexOf(term.toLowerCase()) >= 0);
+
+        this.setState({
+          skills: filteredSkilss
+        });
+      });
+  }
+
+  componentWillMount() {
+    fetch("/api/technologies")
+      .then(result => result.json())
+      .then(allTechnologies => {
+        this.setState({
+          technologies: allTechnologies
+        });
+      });
+
+    fetch("/api/skills")
+      .then(result => result.json())
+      .then(allSkills => {
+        this.setState({
+          skills: allSkills
+        });
+      });
   }
 
   render() {
     return (
       <Router>
-        <TopAppBar searchCallback={this.searched} />
+        <TopAppBar searchCallback={(term) => {
+          this.searchedSkill(term);
+          this.searchedTechnology(term);
+        }} />
         <Box p={2} > 
           <DynamicBreadcrumbs />
         </Box>
 
         <Route path="/(tech|)">
-          <TechnologySkillGrid />
+          <TechnologySkillGrid technologies={this.state.technologies}/>
         </Route>
-        <Route path="/teams" component={TeamList} />
+        <Route path="/skills" >
+          <TechnologySkillGrid technologies={this.state.skills}/>
+        </Route>
         <Route path="/forum" component={PersonList} />
 
         <BottomAppBar />

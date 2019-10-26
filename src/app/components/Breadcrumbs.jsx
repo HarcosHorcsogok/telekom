@@ -69,7 +69,6 @@ export default function DynamicBreadcrumbs(props) {
       return (
         <Breadcrumbs aria-label="breadcrumb">
           {pathnames.map((value, index) => {
-            const isLast = index === pathnames.length - 1;
             const pathTillIndex = `/${pathnames.slice(0, index + 1).join('/')}`;
 
             let breadCrumbKey = null;
