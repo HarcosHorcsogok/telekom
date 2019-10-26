@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Person from "../data/Person.jsx";
 import PersonListItem from "./PersonListItem.jsx";
 import List from "@material-ui/core/List"
 
@@ -8,13 +9,17 @@ class PersonList extends Component {
     super(props);
     if (!this.props.state) {
       this.state = {
-        listItems: [<PersonListItem state={{name: "Peter Szecsi", team: "5G IoT", imgUrl: "szepet.jpg", chatUrl: "https://google.com"}} key={"a"}/>,
-         <PersonListItem state={{name: "Szeter Pecsi", team: "5G IoT", imgUrl: "szepet.jpg", chatUrl: "https://google.com"}} key={"b"}/>, 
-         <PersonListItem state={{name: "Szecsi Peter", team: "5G IoT", imgUrl: "szepet.jpg", chatUrl: "https://google.com"}} key={"c"}/>],
+        people: [new Person(0, "Peter Szecsi", "5G IoT", ["c++"], "szepet.jpg", "https://google.com"),
+          new Person(1, "Peter Pecsi", "5G IoT", ["c++"], "szepet.jpg", "https://google.com")],
       };
     } else {
       this.state = this.props.state;
     }
+
+    this.state.listItems = [];
+    this.state.people.forEach(person => {
+      this.state.listItems.push(person.toListItem());
+    });
   }
 
   render() {

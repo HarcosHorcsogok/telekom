@@ -68,6 +68,21 @@ const useStyles = makeStyles(theme => ({
 */
 export default function TopAppBar(props) {
   const searchCallback = props.searchCallback;
+
+  // (:
+  //************************** */
+  //************************** */
+  //************************** */
+  //************************** */
+
+  // Remove this if you know what you are doing
+  fetch("/api/skills/C++").then(result => result.json()).then(response => console.log(response));
+
+  //************************** */
+  //************************** */
+  //************************** */
+  //************************** */
+  
   const classes = useStyles();
   const [checked, setChecked] = React.useState(false);
 

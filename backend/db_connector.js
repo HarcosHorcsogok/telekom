@@ -1,24 +1,38 @@
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('./backend/db/telekom', (err) => {
-  if (err) {
-    return console.error(err.message);
+class db_connector{
+
+  constructor () {
+    this.db = new sqlite3.Database('./backend/db/telekom', (err) => {
+      if (err) {
+        return console.error(err.message);
+      }
+      console.log('Connected to the in-memory SQlite database.');
+    });
+
+    this.result = [];
   }
-  console.log('Connected to the in-memory SQlite database.');
-});
 
-let sql = `SELECT DISTINCT Name name FROM person where role="manager"`;
-let sql1 = `SELECT DISTINCT Name name FROM person where role="manager"`;
+  async query_person_by_skill(skill, cb) {
+    let sql = `SELECT * FROM person inner join skills on person.person_id=skills.person_id where skill="C++"`;
+    let sql_skills = `SELECT * FROM skills where skill=?`;
+    let sql1 = `SELECT DISTINCT Name name FROM person where role="manager"`;
+    
+    this.db.all(sql_skills, [skill], (err, rows) => {
+      if (err) {
+        throw err;
+      }
 
-db.all(sql, [], (err, rows) => {
-  if (err) {
-    throw err;
+      cb(rows);
+
+      console.log(rows);
+      // rows.forEach((row) => {
+      //   result.push(row);
+      // });
+      // return result;
+    });
+
   }
-  rows.forEach((row) => {
-    console.log(row.name);
-  });
-});
-
-const msg = "asdasd"
-
-export default { msg };
+}
+  
+export default db_connector;

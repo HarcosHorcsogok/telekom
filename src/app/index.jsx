@@ -3,12 +3,16 @@ import { render } from "react-dom";
 
 import "../scss/main.scss";
 import TopAppBar from "./components/TopAppBar.jsx";
+import PersonList from "./components/PersonList.jsx"
 
 
 class App extends React.Component {
   render() {
     return (
-      <TopAppBar />
+      <React.Fragment>
+        <TopAppBar />
+        <PersonList />
+      </React.Fragment>
     );
   }
 }
