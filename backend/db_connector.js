@@ -13,16 +13,13 @@ class db_connector{
     this.result = [];
   }
 
-  async query_person_by_skill(skill, cb) {
+  query_person_by_skill(skill, cb) {
     let sql = `SELECT 
       person.PERSON_ID id,
       person.NAME name,
       teams.NAME team,
-      person.ROLE role       
+      person.ROLE role
       FROM person inner join skills on person.person_id=skills.person_id inner join teams on person.team_id=teams.team_id where skill=?`;
-    
-      let sql_skills = `SELECT * FROM skills where skill=?`;
-    let sql1 = `SELECT DISTINCT Name name FROM person where role="manager"`;
     
     this.db.all(sql, [skill], (err, rows) => {
       if (err) {
@@ -30,14 +27,52 @@ class db_connector{
       }
 
       cb(rows);
-
-      console.log(rows);
-      // rows.forEach((row) => {
-      //   result.push(row);
-      // });
-      // return result;
     });
+  }
 
+  query_persons_by_team(team, cb) {
+    let sql = `SELECT 
+      person.PERSON_ID id,
+      person.NAME name,
+      teams.NAME team,
+      person.ROLE role
+      FROM person inner join teams on person.team_id=teams.team_id where teams.name=?`;
+    
+    this.db.all(sql, [team], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
+  }
+
+  query_technologies(cb) {
+    let sql = `SELECT
+      TECHNOLOGY name
+      FROM technologies`;
+    
+    this.db.all(sql, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
+  }
+
+  query_skills(cb) {
+    let sql = `SELECT
+      SKILL name
+      FROM skills`;
+    
+    this.db.all(sql, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(rows);
+    });
   }
 }
   
