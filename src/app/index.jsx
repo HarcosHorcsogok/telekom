@@ -65,29 +65,29 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <TopAppBar searchCallback={(term) => {
-          this.searchedSkill(term);
-          this.searchedTechnology(term);
-        }} />
-
-        <Route exact path="/(tech|)">
-          <TechnologySkillGrid technologies={this.state.technologies}/>
-        </Route>
-        <Route exact path="/(tech|)/:techName">
-          <TeamList />
-        </Route>
-        <Route exact path="/(tech|)/:techName/:teamName">
-          <TeamPersonList />
-        </Route>
-        <Route exact path="/skills" >
+        <Route exact path="/(skills|)" >
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} />
           <TechnologySkillGrid technologies={this.state.skills}/>
         </Route>
-        <Route exact path="/skills/:skillName" >
+        <Route exact path="/(skills|)/:skillName" >
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} />
           <PersonList />
+        </Route>
+        <Route exact path="/teams">
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} />
+          <TechnologySkillGrid technologies={this.state.technologies}/>
+        </Route>
+        <Route exact path="/teams/:techName">
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} />
+          <TeamList />
+        </Route>
+        <Route exact path="/teams/:techName/:teamName">
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} />
+          <TeamPersonList />
         </Route>
         <Route path="/forum" component={PersonList} />
 
-        <BottomAppBar />
+        <BottomAppBar callback={()=>{this.searchedSkill(""); this.searchedTechnology("");}}/>
       </Router>
     );
   }

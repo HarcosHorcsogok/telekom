@@ -113,11 +113,11 @@ export default function DynamicBreadcrumbs(props) {
   </Route>
   );
 
-  return (
+  /*return (
     <Paper elevation={0} className={classes.root}>
       <Breadcrumbs aria-label="breadcrumb">
         {breadcrumbs}
       </Breadcrumbs>
     </Paper>
-  );
+  );*/
 }

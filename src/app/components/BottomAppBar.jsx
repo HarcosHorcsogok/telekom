@@ -8,6 +8,8 @@ import ForumIcon from '@material-ui/icons/Forum';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
+
+
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -32,19 +34,21 @@ const theme = createMuiTheme({
   },
 });
 
-export default function BottomAppBar() {
+export default function BottomAppBar(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState('tech');
+  const [value, setValue] = React.useState('skills');
+  const callback = props.callback;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    callback();
   };
 
   return (
     <ThemeProvider theme={theme}>
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction component={Link} to="/tech" label="Technologies" value="tech" icon={<TechIcon />} />
-        <BottomNavigationAction component={Link} to="/skills" label="Skills" value="skills" icon={<TeamIcon />} />
+        <BottomNavigationAction component={Link} to="/skills" label="Technologies" value="skills" icon={<TechIcon />} />
+        <BottomNavigationAction component={Link} to="/teams" label="Teams" value="teams" icon={<TeamIcon />} />
         <BottomNavigationAction component={Link} to="/forum" label="Forum" value="forum" icon={<ForumIcon />} />
       </BottomNavigation>
     </ThemeProvider>
