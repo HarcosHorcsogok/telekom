@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import "../scss/main.scss";
 import TopAppBar from "./components/TopAppBar.jsx";
 import PersonList from "./components/PersonList.jsx"
+import TeamList from "./components/TeamList.jsx"
 
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
       <React.Fragment>
         <TopAppBar />
         <PersonList />
+        <TeamList />
       </React.Fragment>
     );
   }
