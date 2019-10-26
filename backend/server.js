@@ -6,14 +6,15 @@ const router = express.Router();
 
 const db_connector = new db;
 
-router.get('/:skill', function(req, res, next) {
+router.get('/skills/:skill', function(req, res, next) {
   let skill = req.params.skill;
-  console.log(skill);
-  // GET/users/ route
   db_connector.query_person_by_skill(skill, val => { res.send(val) });
-  // res.send({
-  //   name: config.admin.name,
-  //   msg: message});
 });
+
+// router.get('/skills/:skill', function(req, res, next) {
+//   let skill = req.params.skill;
+//   console.log(skill);
+//   db_connector.query_person_by_skill(skill, val => { res.send(val) });
+// });
 
 export default router;

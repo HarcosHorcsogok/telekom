@@ -75,6 +75,22 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function TopAppBar() {
+
+  //************************** */
+  //************************** */
+  //************************** */
+  //************************** */
+
+  // Remove this if you know what you are doing
+  fetch("/api/skills/C++").then(result => result.json()).then(response => console.log(response));
+
+  //************************** */
+  //************************** */
+  //************************** */
+  //************************** */
+  
+  
+  
   const classes = useStyles();
 
   return (
