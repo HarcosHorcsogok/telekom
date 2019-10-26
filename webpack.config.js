@@ -15,7 +15,8 @@ var config = {
   watch: true,
   output: {
     path: BUILD_DIR,
-    filename: "client.min.js"
+    filename: "client.min.js",
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -64,7 +65,8 @@ var config = {
         target: "http://localhost:3000/",
         secure: false
       }
-    }
+    },
+    historyApiFallback: true
   },
 
   plugins: debug

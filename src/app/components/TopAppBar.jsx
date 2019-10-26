@@ -76,7 +76,7 @@ export default function TopAppBar(props) {
   //************************** */
 
   // Remove this if you know what you are doing
-  fetch("/api/skills/C++").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/skills/C++").then(result => result.json()).then(response => console.log(response));
 
   //************************** */
   //************************** */

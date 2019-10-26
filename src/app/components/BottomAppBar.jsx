@@ -1,36 +1,48 @@
-import React, { Component } from "react";
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import TechIcon from '@material-ui/icons/Widgets';
 import TeamIcon from '@material-ui/icons/Group';
 import ForumIcon from '@material-ui/icons/Forum';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
+const useStyles = makeStyles({
+  root: {
+    width: "100%",
+  },
+});
 
-class BottomAppBar extends Component {
-  constructor(props) {
-    super(props);
-    if (!this.props.state) {
-      this.state = {
-        value: "technologies",
-      };
-    } else {
-      this.state = this.props.state;
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#E10075',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      main: '#000000'
     }
-  }
-  componentWillMount() { }
+  },
+});
 
-  render() {
-    return (
-    <BottomNavigation value={this.state.value} showLabels
-	                  onChange={(event, newValue) => {this.setState({value: newValue})}}>
-      <BottomNavigationAction label="Technologies" value="technologies" icon={<TechIcon />} />
-      <BottomNavigationAction label="Teams" value="teams" icon={<TeamIcon />} />
-      <BottomNavigationAction label="Forum" value="forum" icon={<ForumIcon />} />
-    </BottomNavigation>
-    );
-  }
+export default function BottomAppBar() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState('recents');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+        <BottomNavigationAction component={Link} to="/tech" label="Technologies" value="recents" icon={<TechIcon />} />
+        <BottomNavigationAction component={Link} to="/teams" label="Teams" value="favorites" icon={<TeamIcon />} />
+        <BottomNavigationAction component={Link} to="/forum" label="Forum" value="folder" icon={<ForumIcon />} />
+      </BottomNavigation>
+    </ThemeProvider>
+  );
 }
-
-export default BottomAppBar;
-
