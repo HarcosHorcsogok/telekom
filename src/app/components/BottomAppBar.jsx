@@ -47,9 +47,9 @@ export default function BottomAppBar(props) {
   return (
     <ThemeProvider theme={theme}>
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction component={Link} to="/skills" label="Technologies" value="skills" icon={<TechIcon />} />
-        <BottomNavigationAction component={Link} to="/teams" label="Teams" value="teams" icon={<TeamIcon />} />
-        <BottomNavigationAction component={Link} to="/forum" label="Forum" value="forum" icon={<ForumIcon />} />
+        <BottomNavigationAction className={classes.action} component={Link} to="/skills" label="Technologies" value="skills" icon={<TechIcon />} />
+        <BottomNavigationAction className={classes.action} component={Link} to="/teams" label="Teams" value="teams" icon={<TeamIcon />} />
+        <BottomNavigationAction className={classes.action} component={Link} to="/forum" label="Forum" value="forum" icon={<ForumIcon />} />
       </BottomNavigation>
     </ThemeProvider>
   );

@@ -26,7 +26,7 @@ class Team{
   }
 
   toListItem(){
-    return <TeamListItem state={{name: this.name, place: this.place, url: "https://google.com"}} key={this.id}/>;
+    return <TeamListItem state={{name: this.name, place: this.place}} key={this.id}/>;
   }
 }
 

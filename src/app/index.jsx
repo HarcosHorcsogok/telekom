@@ -66,7 +66,7 @@ class App extends React.Component {
     return (
       <Router>
         <Route exact path="/(skills|)" >
-          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} />
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} search="true" />
           <TechnologySkillGrid technologies={this.state.skills}/>
         </Route>
         <Route exact path="/(skills|)/:skillName" >
@@ -74,7 +74,7 @@ class App extends React.Component {
           <PersonList />
         </Route>
         <Route exact path="/teams">
-          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} />
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} search="true" />
           <TechnologySkillGrid technologies={this.state.technologies}/>
         </Route>
         <Route exact path="/teams/:techName">
@@ -82,10 +82,13 @@ class App extends React.Component {
           <TeamList />
         </Route>
         <Route exact path="/teams/:techName/:teamName">
-          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} back={true}/>
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true}/>
           <TeamPersonList />
         </Route>
-        <Route path="/forum" component={PersonList} />
+        <Route path="/forum" >
+          <TopAppBar />
+          <PersonList />
+        </Route>
 
         <BottomAppBar callback={()=>{this.searchedSkill(""); this.searchedTechnology("");}}/>
       </Router>

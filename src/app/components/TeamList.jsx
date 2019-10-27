@@ -19,7 +19,7 @@ export default class TeamList extends React.Component
       .then(response => {
         let people = [];
         response.forEach(p => {
-          people.push(new Team(p.id, p.name, []));
+          people.push(new Team(p.id, p.name, p.place));
         });
         this.setState({people: people});
       });

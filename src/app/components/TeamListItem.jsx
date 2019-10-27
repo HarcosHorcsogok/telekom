@@ -22,7 +22,7 @@ class TeamListItem extends Component {
 
   render() {
     return (
-      <Link to={window.location.pathname + "/" + this.state.name}>
+      <Link to={window.location.pathname + "/" + this.state.name} style={{textDecoration: "none", color: "initial"}}>
         <ListItem className="PersonListItem" divider={true}>
           <ListItemText primary={this.state.name} secondary={this.state.place} />
           <ListItemSecondaryAction>
