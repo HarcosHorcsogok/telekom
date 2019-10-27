@@ -30,7 +30,7 @@ export default class PersonList extends React.Component
   render() {
     let listItems = [];
     this.state.people.forEach(person => {
-      if (!showTeam) {
+      if (!this.showTeam) {
         listItems.push(person.toListItem());
       } else {
         listItems.push(person.toListItemTeam());
