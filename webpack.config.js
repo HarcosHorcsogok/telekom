@@ -16,7 +16,7 @@ var config = {
   output: {
     path: BUILD_DIR,
     filename: "client.min.js",
-    publicPath: '/'
+    publicPath: APP_DIR
   },
   module: {
     rules: [
@@ -66,7 +66,9 @@ var config = {
         secure: false
       }
     },
-    historyApiFallback: true
+    historyApiFallback:{
+      index: APP_DIR + '/index.html'
+  },
   },
 
   plugins: debug
