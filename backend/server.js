@@ -1,10 +1,5 @@
 import express from 'express';
-import config from '../config.js';
 import db from "./db_connector.js"
-
-// function to_person(db_row) {
-//   return new Person();
-// }
 
 const router = express.Router();
 

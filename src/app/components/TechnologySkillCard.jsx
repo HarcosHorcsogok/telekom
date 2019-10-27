@@ -24,7 +24,7 @@ export default function TechnolgySkillCard(props) {
   const classes = useStyles();
   const descObj = props.descObj;
   return (
-    <Link to={window.location.pathname + "/" + props.descObj.name}>
+    <Link to={window.location.pathname + "/" + props.descObj.name} style={{textDecoration: "none"}}>
     <Card className={classes.card} >
         <CardActionArea>
           <CardMedia

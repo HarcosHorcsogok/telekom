@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import BackIcon from '@material-ui/icons/ArrowBack'
 import Grow from '@material-ui/core/Grow'
 import IconButton from '@material-ui/core/IconButton';
 
@@ -70,6 +71,9 @@ const useStyles = makeStyles(theme => ({
   inputInput: {
     padding: theme.spacing(1.5, 1, 1.5, 1.5),
     width: '100%'
+  },
+  backIcon: {
+    marginRight: theme.spacing(2)
   }
 }));
 
@@ -164,16 +168,24 @@ export default function TopAppBar(props) {
           <div className={classes.root}>
           <AppBar position="fixed">
               <Toolbar>
-                  <Typography className={classes.title} variant="h6">
-                      HOL/KI
-                  </Typography>
-                  <div class="font-icon-wrapper" onClick={() => handleChange()}>
-                      <IconButton>
-                          <div className={classes.searchIcon}>
-                              <SearchIcon />
-                          </div>
-                      </IconButton>
-                  </div>
+                {props.back && 
+                  <div class="font-icon-wrapper" onClick={() => window.history.back()}>
+                    <IconButton edge="start" className={classes.backIcon} color="inherit">
+                      <BackIcon />
+                    </IconButton>
+                  </div> 
+                  
+                }
+                <Typography className={classes.title} variant="h6">
+                  HOL/KI
+                </Typography>
+                <div class="font-icon-wrapper" onClick={() => handleChange()}>
+                  <IconButton>
+                    <div className={classes.searchIcon}>
+                      <SearchIcon />
+                    </div>
+                  </IconButton>
+                </div>
               </Toolbar>
           </AppBar>
           </div>
