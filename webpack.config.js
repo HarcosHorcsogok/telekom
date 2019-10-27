@@ -8,7 +8,7 @@ const SCSS_DIR = path.resolve(__dirname, "src/scss");
 const SRC = path.resolve(__dirname, "src");
 
 var config = {
-  mode: "production",
+  mode: "development",
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : false,
   entry: APP_DIR + "/index.jsx",

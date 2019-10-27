@@ -32,8 +32,8 @@ export default class PersonList extends React.Component
     });
 
     const style ={
-      paddingTop: 57,
-      paddingBottom: 57
+      paddingTop: 65,
+      paddingBottom: 65
     };
     return (
       <List style={style}>
