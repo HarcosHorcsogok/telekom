@@ -53,24 +53,17 @@
 20;MySQL
 20;Redis
 20;OCaml
-21;PL_I
 21;Ionic
 21;IDL
 22;Redis
 22;ALGOL
 22;Neo4J
 23;Android
-23;F#
-23;WAP_WML
-24;Object-Oriented Programmi
 24;MySQL
 24;Pascal
 25;Delphi
 25;Visual FoxPro
-25;Smalltalk
 26;Simula
-26;Ruby on Rails
-26;WAP_WML
 27;Cordova
 27;PROLOG
 27;Perl
@@ -88,7 +81,6 @@
 31;PROLOG
 32;Javascript
 32;Rexx
-32;C#
 33;MS Access
 33;Pascal
 33;NoSQL
@@ -96,24 +88,19 @@
 34;Postgres
 34;FORTH
 35;Docker
-35;C#
 35;HTML
 36;ML
 36;Javascript
 36;Amazon AWS
 37;SSI
-37;C#
 37;LabVIEW
 38;MetaQuotes Language
 38;Redis
 38;Ada
 39;Simula
-39;PL_SQL
 39;BBC Basic
 40;React Native
-40;Ruby on Rails
 40;Android
-41;Object-Oriented Programmi
 41;ABAP
 41;Cordova
 42;BBC Basic
@@ -135,11 +122,9 @@
 47;SQLite
 47;FORTRAN
 48;ActionScript
-48;C#
 48;Javascript
 49;Mongo
 49;Delphi
-49;F#
 50;Scala
 50;SGML
 50;Javascript
@@ -147,7 +132,6 @@
 51;ABAP
 51;Rexx
 52;Dreamweaver
-52;Ruby on Rails
 52;Scala
 53;Alice
 53;React Native
@@ -158,7 +142,6 @@
 55;ActionScript
 55;Stata
 55;RapidWeaver
-56;Smalltalk
 56;PostScript
 56;Flutter
 57;INTERCAL
