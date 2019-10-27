@@ -4,11 +4,6 @@ import Typography from "@material-ui/core/Typography"
 import { Image } from 'react';
 import {makeStyles} from "@material-ui/core/styles"
 
-import i1 from './../../img/highres/a.png'
-import i2 from './../../img/highres/b.png'
-import i3 from './../../img/highres/c.png'
-import i4 from './../../img/highres/d.png'
-
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'grid',
@@ -18,7 +13,16 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 90,
     paddingBottom: 70
   },
-  pic: {maxWidth: 500, width: '75%', margin: theme.spacing(3), }
+  pic: {
+    maxWidth: 270,
+    [theme.breakpoints.up('sm')]: {maxWidth: 500},
+    width: '75%', 
+    margin: theme.spacing(3) 
+  },
+  picpic: {
+    maxWidth: 270,
+    [theme.breakpoints.up('sm')]: {maxWidth: 500},
+  }
 }));
 
 export default function Forum(){
@@ -26,10 +30,10 @@ export default function Forum(){
   return(
    <Grid container spacing={3} style={{paddingTop: 90, paddingBottom: 70, textAlign: 'center'}} alignItems="center" justify="center" >
      <Grid item xs={12}><Typography variant={"h5"}>Coming soon!</Typography></Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src={i1} style={{maxWidth: 500}}/> </Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src={i2} style={{maxWidth: 500}}/> </Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src={i3} style={{maxWidth: 500}}/> </Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src={i4} style={{maxWidth: 500}}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/a.png" className={classes.picpic}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/b.png" className={classes.picpic}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/c.png" className={classes.picpic}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/d.png" className={classes.picpic}/> </Grid>
    </Grid>
 
     // <div className={classes.container}>
