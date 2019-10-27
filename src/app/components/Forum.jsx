@@ -17,11 +17,13 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 270,
     [theme.breakpoints.up('sm')]: {maxWidth: 500},
     width: '75%', 
-    margin: theme.spacing(3) 
+    margin: theme.spacing(3),
+    
   },
   picpic: {
     maxWidth: 270,
     [theme.breakpoints.up('sm')]: {maxWidth: 500},
+    boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
   }
 }));
 
