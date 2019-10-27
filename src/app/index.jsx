@@ -9,6 +9,7 @@ import PersonList from "./components/PersonList.jsx";
 import TeamList from "./components/TeamList.jsx";
 import TeamPersonList from "./components/TeamPersonList.jsx";
 import Favicon from 'react-favicon';
+import Forum from "./components/Forum.jsx"
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 // ░░░░░░░░░░▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄░░░░░░░░░
@@ -111,7 +112,7 @@ class App extends React.Component {
         <Route path="/forum" title={0}>
           <Favicon url="/img/telekom.jpg" />
           <TopAppBar />
-          <PersonList />
+          <Forum />
         </Route>
 
         <BottomAppBar callback={()=>{this.searchedSkill(""); this.searchedTechnology("");}}/>
