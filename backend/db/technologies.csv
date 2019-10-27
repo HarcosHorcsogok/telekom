@@ -1,13 +1,57 @@
-IoT;1
-Cloud;1
-5G;1
-Hardware;1
-IoT;2
+Artificial Intelligence;2
+Artificial Intelligence;5
+Artificial Intelligence;4
+Data Mining;5
+Data Mining;1
+Data Mining;3
+Reverse Engineering;4
+Reverse Engineering;3
+Reverse Engineering;2
+IT Security;5
+IT Security;1
+IT Security;2
+Build Systems;1
+Build Systems;5
+Build Systems;2
+Networks;2
+Networks;4
+Networks;1
+Quantum computing;5
+Quantum computing;2
+Quantum computing;3
+Blockchain;3
+Blockchain;1
+Blockchain;5
+Augmented Reality;2
+Augmented Reality;5
+Augmented Reality;4
+Virtual Reality;2
+Virtual Reality;1
+Virtual Reality;4
+Micro Services;3
+Micro Services;1
+Micro Services;2
+PlatformAsA Service;5
+PlatformAsA Service;2
+PlatformAsA Service;3
+Selfdriving Cars;2
 Cloud;2
-Serverless;2
-Networks;3
-AI;3
-Big Data;3
-Machine Learning;4
-Cloud;4
+Selfdriving Cars;4
 Cloud;5
+Selfdriving Cars;3
+Cloud;1
+5G;5
+5G;1
+5G;4
+Hardware;2
+Hardware;1
+Hardware;3
+Serverless;4
+Serverless;5
+Serverless;2
+Artificial Intelligence;4
+Artificial Intelligence;1
+Artificial Intelligence;3
+Big Data;2
+Big Data;3
+Big Data;4
