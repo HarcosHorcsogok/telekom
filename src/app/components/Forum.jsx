@@ -18,27 +18,28 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 90,
     paddingBottom: 70
   },
+  pic: {maxWidth: 500, width: '75%', margin: theme.spacing(3), }
 }));
 
 export default function Forum(){
   const classes = useStyles();
   return(
-    // <Grid container spacing={3} style={{paddingTop: 70, paddingBottom: 70}} >
-    //   <Grid item xs={12}><Typography variant={"subtitle2"}>Coming soon!</Typography></Grid>
-    //   <Grid item xs={12} m={6} l={3} style={{maxWidth: 500}}> <img src={i1} style={{maxWidth: 500}}/> </Grid>
-    //   <Grid item xs={12} m={6} l={3} style={{maxWidth: 500}}> <img src={i2} style={{maxWidth: 500}}/> </Grid>
-    //   <Grid item xs={12} m={6} l={3} style={{maxWidth: 500}}> <img src={i3} style={{maxWidth: 500}}/> </Grid>
-    //   <Grid item xs={12} m={6} l={3} style={{maxWidth: 500}}> <img src={i4} style={{maxWidth: 500}}/> </Grid>
-    // </Grid>
+   <Grid container spacing={3} style={{paddingTop: 90, paddingBottom: 70, textAlign: 'center'}} alignItems="center" justify="center" >
+     <Grid item xs={12}><Typography variant={"h5"}>Coming soon!</Typography></Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src={i1} style={{maxWidth: 500}}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src={i2} style={{maxWidth: 500}}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src={i3} style={{maxWidth: 500}}/> </Grid>
+     <Grid item xs={12} m={6} className={classes.pic}> <img src={i4} style={{maxWidth: 500}}/> </Grid>
+   </Grid>
 
-    <div className={classes.container}>
-      <div style={{ gridColumnEnd: 'span 12' }}>
-        <Typography variant={"h3"}>Coming soon!</Typography>
-      </div>
-      <div style={{ gridColumnEnd: 'span 12' }}><img src={i1} style={{maxWidth: 500}}/></div>
-      <div style={{ gridColumnEnd: 'span 12' }}><img src={i2} style={{maxWidth: 500}}/></div>
-      <div style={{ gridColumnEnd: 'span 12' }}><img src={i3} style={{maxWidth: 500}}/></div>
-      <div style={{ gridColumnEnd: 'span 12' }}><img src={i4} style={{maxWidth: 500}}/></div>
-    </div>
+    // <div className={classes.container}>
+    //   <div style={{ gridColumnEnd: 'span 12' }}>
+    //     <Typography variant={"h3"}>Coming soon!</Typography>
+    //   </div>
+    //   <div style={{ gridColumnEnd: 'span 12', maxWidth: 500, width: '75%'}}><img src={i1} style={{width:'75%', maxWidth: 500}}/></div>
+    //   <div style={{ gridColumnEnd: 'span 12', maxWidth: 500, width: '75%'}}><img src={i2} style={{width:'75%', maxWidth: 500}}/></div>
+    //   <div style={{ gridColumnEnd: 'span 12', maxWidth: 500, width: '75%'}}><img src={i3} style={{width:'75%', maxWidth: 500}}/></div>
+    //   <div style={{ gridColumnEnd: 'span 12', maxWidth: 500, width: '75%'}}><img src={i4} style={{width:'75%', maxWidth: 500}}/></div>
+    // </div>
   );
 }
