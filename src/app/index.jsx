@@ -79,34 +79,36 @@ class App extends React.Component {
   }
 
   render() {
+    //let path = window.location.pathname.split("/");
+    //console.log(path);
     return (
       <Router>
         <Route exact path="/(skills|)" >
           <Favicon url="/img/telekom.jpg" />
-          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} search="true" />
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} search="true" title={0} />
           <TechnologySkillGrid technologies={this.state.skills}/>
         </Route>
-        <Route exact path="/(skills|)/:skillName" >
+        <Route exact path="/(skills|)/:skillName" >          
           <Favicon url="/img/telekom.jpg" />
-          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} back={true}/>
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} back={true} title={1}/>
           <PersonList />
         </Route>
         <Route exact path="/teams">
           <Favicon url="/img/telekom.jpg" />
-          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} search="true" />
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} search="true" title={0} />
           <TechnologySkillGrid technologies={this.state.technologies}/>
         </Route>
         <Route exact path="/teams/:techName">
           <Favicon url="/img/telekom.jpg" />
-          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true}/>
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true} title={1}/>
           <TeamList />
         </Route>
         <Route exact path="/teams/:techName/:teamName">
           <Favicon url="/img/telekom.jpg" />
-          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true}/>
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true} title={2}/>
           <TeamPersonList />
         </Route>
-        <Route path="/forum" >
+        <Route path="/forum" title={0}>
           <Favicon url="/img/telekom.jpg" />
           <TopAppBar />
           <PersonList />
