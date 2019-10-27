@@ -10,8 +10,11 @@ const useStyles = makeStyles(theme => ({
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: theme.spacing(5),
     justifyItems: 'center',
+  },
+  restrictor: {
+    overflow: "hidden",
     paddingTop: 90,
-    paddingBottom: 70
+    paddingBottom: 70,
   },
   pic: {
     maxWidth: 270,
@@ -30,13 +33,16 @@ const useStyles = makeStyles(theme => ({
 export default function Forum(){
   const classes = useStyles();
   return(
-   <Grid container spacing={3} style={{paddingTop: 90, paddingBottom: 70, textAlign: 'center'}} alignItems="center" justify="center" >
-     <Grid item xs={12}><Typography variant={"h5"}>Coming soon!</Typography></Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/a.png" className={classes.picpic}/> </Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/b.png" className={classes.picpic}/> </Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/c.png" className={classes.picpic}/> </Grid>
-     <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/d.png" className={classes.picpic}/> </Grid>
-   </Grid>
+    <div className={classes.restrictor} key="gridrestrictor">
+      <Grid container spacing={3} style={{textAlign: 'center'}} alignItems="center" justify="center" >
+        <Grid item xs={12}><Typography variant={"h5"}>Coming soon!</Typography></Grid>
+        <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/a.png" className={classes.picpic}/> </Grid>
+        <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/b.png" className={classes.picpic}/> </Grid>
+        <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/c.png" className={classes.picpic}/> </Grid>
+        <Grid item xs={12} m={6} className={classes.pic}> <img src="/img/highres/d.png" className={classes.picpic}/> </Grid>
+      </Grid>
+    </div>
+   
 
     // <div className={classes.container}>
     //   <div style={{ gridColumnEnd: 'span 12' }}>
