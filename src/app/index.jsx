@@ -70,7 +70,7 @@ class App extends React.Component {
           <TechnologySkillGrid technologies={this.state.skills}/>
         </Route>
         <Route exact path="/(skills|)/:skillName" >
-          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} />
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} back={true}/>
           <PersonList />
         </Route>
         <Route exact path="/teams">
@@ -78,11 +78,11 @@ class App extends React.Component {
           <TechnologySkillGrid technologies={this.state.technologies}/>
         </Route>
         <Route exact path="/teams/:techName">
-          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} />
+          <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true}/>
           <TeamList />
         </Route>
         <Route exact path="/teams/:techName/:teamName">
-          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} />
+          <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} back={true}/>
           <TeamPersonList />
         </Route>
         <Route path="/forum" component={PersonList} />
