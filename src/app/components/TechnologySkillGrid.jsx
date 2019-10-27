@@ -26,7 +26,7 @@ export default function TechnologySkillGrid(props){
         key={skills[i]}
         in={true}
         style={{ transformOrigin: '0 0 0', transitionDelay: i*5 + 'ms' }}>
-        <Grid item xs={4} sm={4} md={4} lg={2} xl={1} > 
+        <Grid item xs={4} sm={2} md={2} lg={1 } xl={1} > 
           <TechnologySkillCard descObj={{name: skills[i], imglink: "img/" + skills[i].toLowerCase().replace(" ", "") + ".png"}}/>
         </Grid>
       </Fade>);
