@@ -127,6 +127,12 @@ export default function TopAppBar(props) {
     setChecked(prev => !prev);
   };
 
+  let path = window.location.pathname.split("/");
+  let title = "HOL/KI";
+  for(let i=props.title; i>0; i--){
+    title += " - " + path[path.length - i].replace("%20", " ");
+  }
+
   if(checked) {
     return (
       <ThemeProvider theme={theme}>
@@ -134,7 +140,7 @@ export default function TopAppBar(props) {
           <AppBar position="fixed">
               <Toolbar>
                   <Typography className={classes.titleWithSearch} variant="h6" noWrap>
-                      HOL/KI
+                      {title}
                   </Typography>
                   <div >
                   </div>
@@ -177,7 +183,7 @@ export default function TopAppBar(props) {
                   
                 }
                 <Typography className={classes.title} variant="h6">
-                  HOL/KI
+                  {title}
                 </Typography>
                 {props.search &&
                   <div class="font-icon-wrapper" onClick={() => handleChange()}>
