@@ -1,7 +1,7 @@
 from PIL import Image
 import os
 
-path = 'c:\\Users\\geri1245\\Desktop\\images\\'
+path = 'c:\\Users\\geri1245\\Desktop\\telekom\\src\\img'
 
 files = []
 # r=root, d=directories, f = files
@@ -11,7 +11,7 @@ for r, d, f in os.walk(path):
 
 for f in files:
   path = f.split("\\")
-  path[4] = "imgs"
+  path[6] = "imgs"
   dst = "\\".join(path)
 
   basewidth = 300
