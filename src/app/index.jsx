@@ -8,6 +8,22 @@ import TechnologySkillGrid from "./components/TechnologySkillGrid.jsx";
 import PersonList from "./components/PersonList.jsx";
 import TeamList from "./components/TeamList.jsx";
 import TeamPersonList from "./components/TeamPersonList.jsx";
+import Favicon from 'react-favicon';
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+// ░░░░░░░░░░▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄░░░░░░░░░
+// ░░░░░░░░▄▀░░░░░░░░░░░░▄░░░░░░░▀▄░░░░░░░
+// ░░░░░░░░█░░▄░░░░▄░░░░░░░░░░░░░░█░░░░░░░
+// ░░░░░░░░█░░░░░░░░░░░░▄█▄▄░░▄░░░█░▄▄▄░░░
+// ░▄▄▄▄▄░░█░░░░░░▀░░░░▀█░░▀▄░░░░░█▀▀░██░░
+// ░██▄▀██▄█░░░▄░░░░░░░██░░░░▀▀▀▀▀░░░░██░░
+// ░░▀██▄▀██░░░░░░░░▀░██▀░░░░░░░░░░░░░▀██░
+// ░░░░▀████░▀░░░░▄░░░██░░░▄█░░░░▄░▄█░░██░
+// ░░░░░░░▀█░░░░▄░░░░░██░░░░▄░░░▄░░▄░░░██░
+// ░░░░░░░▄█▄░░░░░░░░░░░▀▄░░▀▀▀▀▀▀▀▀░░▄▀░░
+// ░░░░░░█▀▀█████████▀▀▀▀████████████▀░░░░
+// ░░░░░░████▀░░███▀░░░░░░▀███░░▀██▀░░░░░░
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 class App extends React.Component {
   constructor(props) {
@@ -66,26 +82,32 @@ class App extends React.Component {
     return (
       <Router>
         <Route exact path="/(skills|)" >
+          <Favicon url="./img/tk.png" />
           <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} search="true" />
           <TechnologySkillGrid technologies={this.state.skills}/>
         </Route>
         <Route exact path="/(skills|)/:skillName" >
+          <Favicon url="./img/tk.png" />
           <TopAppBar searchCallback={(term) => { this.searchedSkill(term); }} back={true}/>
           <PersonList />
         </Route>
         <Route exact path="/teams">
+          <Favicon url="./img/tk.png" />
           <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} search="true" />
           <TechnologySkillGrid technologies={this.state.technologies}/>
         </Route>
         <Route exact path="/teams/:techName">
+          <Favicon url="./img/tk.png" />
           <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true}/>
           <TeamList />
         </Route>
         <Route exact path="/teams/:techName/:teamName">
+          <Favicon url="./img/tk.png" />
           <TopAppBar searchCallback={(term) => { this.searchedTechnology(term); }} back={true}/>
           <TeamPersonList />
         </Route>
         <Route path="/forum" >
+          <Favicon url="./img/tk.png" />
           <TopAppBar />
           <PersonList />
         </Route>

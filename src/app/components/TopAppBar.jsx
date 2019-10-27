@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import BackIcon from '@material-ui/icons/ArrowBack'
 import Grow from '@material-ui/core/Grow'
 import IconButton from '@material-ui/core/IconButton';
-/*
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -33,6 +33,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 999,
     display: 'block',
+    /*[theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },*/
   },
   titleWithSearch: {
     flexGrow: 1,
@@ -73,120 +76,49 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   }
 }));
-*/
-
-
-
-
-
-
-
-
-
-  
-
-export default class TopAppBar extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchCallback: props.searchCallback,
-      checked: false
-    }
-    this.backWithReset = this.backWithReset.bind(this);
-  }
-
-  backWithReset() {
-    this.state.searchCallback("");
-    window.history.back();
-  }
-  
-  render(){
-    const handleChange = () => {
-      this.setState({checked: !this.state.checked});
-    };
-
-    const theme = createMuiTheme({palette: {primary: { main: '#E10075' }, secondary: { main: '#000000' }}});
-
-    if(this.state.checked) {
-      return (
-        <ThemeProvider theme={theme}>
-          <div style={{flex: "grow"}}>
-            <AppBar position="fixed">
-              <Toolbar>
-                <Typography style={{flexGrow: 1, display: 'none', [theme.breakpoints.up('sm')]: {display: 'block',}}} 
-                  variant="h6" noWrap>
-                  HOL/KI
-                </Typography>
-                <div >
-                </div>
-                <Grow in={this.state.checked}>
-                  <div style={{position: 'relative', borderRadius: theme.shape.borderRadius, backgroundColor: fade(theme.palette.common.white, 1), marginLeft: 0, flexGrow: 1, [theme.breakpoints.up('sm')]: { flexGrow: 0,}}}>
-                    <InputBase autoFocus
-                      placeholder="Search…"
-                      classes={{
-                          root: classes.inputRoot,
-                          input: classes.inputInput,
-                      }}
-                      inputProps={{ 'aria-label': 'search' }}
-                      onChange={(ev) => this.state.searchCallback(ev.target.value)} />
-                  </div>
-                </Grow>
-                <div class="font-icon-wrapper" style={{marginRight: 12}} onClick={() => handleChange()}>
-                  <IconButton edge="end">
-                    <div style={{ width: theme.spacing(4), height: theme.spacing(4), color: 'white', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                      <SearchIcon />
-                    </div>
-                  </IconButton>
-                </div>
-              </Toolbar>
-            </AppBar>
-          </div>
-        </ThemeProvider>
-      );
-    } else {
-      return (
-        <ThemeProvider theme={theme}>
-            <div style={{flex: "grow"}}>
-            <AppBar position="fixed">
-                <Toolbar>
-                  {this.props.back && 
-                      <IconButton onClick={this.backWithReset} edge="start" style={{marginRight: theme.spacing(2)}} color="inherit">
-                        <BackIcon />
-                      </IconButton>
-                  }
-                  <Typography style={{flexGrow: 999, display: 'block',}} 
-                    variant="h6">
-                    HOL/KI
-                  </Typography>
-  
-                  {this.props.search &&
-                    <div class="font-icon-wrapper" onClick={() => handleChange()}>
-                      <IconButton>
-                        <div style={{ width: theme.spacing(4), height: theme.spacing(4), color: 'white', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <SearchIcon />
-                        </div>
-                      </IconButton>
-                    </div>
-                  }
-                </Toolbar>
-            </AppBar>
-            </div>
-        </ThemeProvider>
-      );
-    }
-  }
-}
-
 
 /* 
  * Defines a new top app bar.
  * :param props Needs a searchCallback function which will be called each time a search term is entered into the field 
 */
-/*
 export default function TopAppBar(props) {
   const searchCallback = props.searchCallback;
   // const {pathname} = props.location;
-  console.log(props)
+  //console.log(props)
+
+  // (:
+  
+
+//   _____ __________.___  _____________________________   ____ ______________ _____________________________
+//   /  _  \\______   \   | \______   \_   _____/\_____  \ |    |   \_   _____//   _____/\__    ___/   _____/
+//  /  /_\  \|     ___/   |  |       _/|    __)_  /  / \  \|    |   /|    __)_ \_____  \   |    |  \_____  \ 
+// /    |    \    |   |   |  |    |   \|        \/   \_/.  \    |  / |        \/        \  |    |  /        \
+// \____|__  /____|   |___|  |____|_  /_______  /\_____\ \_/______/ /_______  /_______  /  |____| /_______  /
+//         \/                       \/        \/        \__>                \/        \/                  \/ 
+  
+  // Remove this if you know what you are doing
+  // I don't
+  //fetch("/api/skills/c++").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/teams/teamb").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/technologies").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/skills").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/members/teamc").then(result => result.json()).then(response => console.log(response));
+  // fetch("/api/technologies/cloud").then(result => result.json()).then(response => console.log(response));
+
+
+//   ___                                               ___           ___           ___           ___           ___           ___                         ___     
+//   /  /\          ___            ___                 /  /\         /  /\         /  /\         /  /\         /  /\         /  /\          ___          /  /\    
+//  /  /::\        /  /\          /__/\               /  /::\       /  /::\       /  /::\       /  /:/        /  /::\       /  /::\        /__/\        /  /::\   
+// /  /:/\:\      /  /::\         \__\:\             /  /:/\:\     /  /:/\:\     /__/:/\:\     /  /:/        /  /:/\:\     /__/:/\:\       \  \:\      /__/:/\:\  
+// /  /::\ \:\    /  /:/\:\        /  /::\           /  /::\ \:\   /  /::\ \:\    \  \:\ \:\   /  /:/        /  /::\ \:\   _\_ \:\ \:\       \__\:\    _\_ \:\ \:\ 
+// /__/:/\:\_\:\  /  /::\ \:\    __/  /:/\/          /__/:/\:\_\:\ /__/:/\:\ \:\    \  \:\ \:\ /__/:/     /\ /__/:/\:\ \:\ /__/\ \:\ \:\      /  /::\  /__/\ \:\ \:\
+// \__\/  \:\/:/ /__/:/\:\_\:\  /__/\/:/~~           \__\/~|::\/:/ \  \:\ \:\_\/     \  \:\/:/ \  \:\    /:/ \  \:\ \:\_\/ \  \:\ \:\_\/     /  /:/\:\ \  \:\ \:\_\/
+//    \__\::/  \__\/  \:\/:/  \  \::/                 |  |:|::/   \  \:\ \:\        \__\::/   \  \:\  /:/   \  \:\ \:\    \  \:\_\:\      /  /:/__\/  \  \:\_\:\  
+//    /  /:/        \  \::/    \  \:\                 |  |:|\/     \  \:\_\/        /  /:/     \  \:\/:/     \  \:\_\/     \  \:\/:/     /__/:/        \  \:\/:/  
+//   /__/:/          \__\/      \__\/                 |__|:|~       \  \:\         /__/:/       \  \::/       \  \:\        \  \::/      \__\/          \  \::/   
+//   \__\/                                             \__\|         \__\/         \__\/         \__\/         \__\/         \__\/                       \__\/    
+
+
   
   const classes = useStyles();
   const [checked, setChecked] = React.useState(false);
@@ -237,16 +169,16 @@ export default function TopAppBar(props) {
           <AppBar position="fixed">
               <Toolbar>
                 {props.back && 
-                    <IconButton onClick={function(ev){
-                      searchCallback("");
-                      window.history.back()}} edge="start" className={classes.backIcon} color="inherit">
+                  <div class="font-icon-wrapper" onClick={() => {searchCallback(""); window.history.back()}}>
+                    <IconButton edge="start" className={classes.backIcon} color="inherit">
                       <BackIcon />
                     </IconButton>
+                  </div> 
+                  
                 }
                 <Typography className={classes.title} variant="h6">
                   HOL/KI
                 </Typography>
-
                 {props.search &&
                   <div class="font-icon-wrapper" onClick={() => handleChange()}>
                     <IconButton>
@@ -256,6 +188,7 @@ export default function TopAppBar(props) {
                     </IconButton>
                   </div>
                 }
+                
               </Toolbar>
           </AppBar>
           </div>
@@ -263,4 +196,3 @@ export default function TopAppBar(props) {
     );
   }
 }
-*/
