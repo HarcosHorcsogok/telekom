@@ -14,7 +14,7 @@ router.get('/skills/:skill', function(req, res, next) {
 // Get people in ceertain team
 router.get('/teams/:team', function(req, res, next) {
   let team = req.params.team;
-  db_connector.query_persons_by_team(team, val => { console.log(val); res.send(val); });
+  db_connector.query_persons_by_team(team, val => { res.send(val); });
 });
 
 // Get all technologies

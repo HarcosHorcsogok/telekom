@@ -20,19 +20,15 @@
 9;Visual FoxPro
 9;C++
 9;D
-10;FORTRAN
 10;Perl
 10;Docker
 11;NXT-G
 11;Simula
-11;SNOBOL
 12;PHP
-12;BBC Basic
 12;Neo4J
 13;Neo4J
 13;Awk
 13;MySQL
-14;RapidWeaver
 14;NXT-G
 14;ALGOL
 15;VueJS
@@ -40,43 +36,30 @@
 15;SQLite
 16;NXT-G
 16;Haskell
-16;VRML
 17;Google Firebase
-17;IDL
 17;Unix Shells
 18;Delphi
 18;Verilog
 18;PROLOG
-19;Stata
 19;Java
 19;Pascal
 20;MySQL
 20;Redis
 20;OCaml
-21;PL_I
-21;Ionic
-21;IDL
 22;Redis
 22;ALGOL
 22;Neo4J
+22;Rust
 23;Android
-23;F#
-23;WAP_WML
-24;Object-Oriented Programmi
 24;MySQL
 24;Pascal
 25;Delphi
 25;Visual FoxPro
-25;Smalltalk
 26;Simula
-26;Ruby on Rails
-26;WAP_WML
-27;Cordova
 27;PROLOG
 27;Perl
 28;Swift
 28;Redis
-28;SNOBOL
 29;Swift
 29;NXT-G
 29;Visual Basic
@@ -87,36 +70,22 @@
 31;OCaml
 31;PROLOG
 32;Javascript
-32;Rexx
-32;C#
 33;MS Access
 33;Pascal
 33;NoSQL
 34;Verilog
+34;Rust
 34;Postgres
 34;FORTH
 35;Docker
-35;C#
 35;HTML
 36;ML
 36;Javascript
 36;Amazon AWS
-37;SSI
-37;C#
-37;LabVIEW
-38;MetaQuotes Language
 38;Redis
 38;Ada
-39;Simula
-39;PL_SQL
-39;BBC Basic
-40;React Native
-40;Ruby on Rails
 40;Android
-41;Object-Oriented Programmi
-41;ABAP
-41;Cordova
-42;BBC Basic
+41;Rust
 42;iOS
 42;C++
 43;Visual Basic
@@ -125,42 +94,28 @@
 44;ALGOL
 44;Kubernetes
 44;Python
-45;APL
 45;Verilog
 45;Simula
 46;Postgres
-46;MetaQuotes Language
 46;Simula
 47;Haskell
 47;SQLite
-47;FORTRAN
 48;ActionScript
-48;C#
 48;Javascript
 49;Mongo
 49;Delphi
-49;F#
 50;Scala
 50;SGML
 50;Javascript
 51;SQLite
-51;ABAP
-51;Rexx
 52;Dreamweaver
-52;Ruby on Rails
 52;Scala
 53;Alice
 53;React Native
 53;Flutter
-54;Rexx
-54;SNOBOL
 54;MySQL
 55;ActionScript
-55;Stata
-55;RapidWeaver
-56;Smalltalk
 56;PostScript
 56;Flutter
 57;INTERCAL
-57;SNOBOL
 57;Java
